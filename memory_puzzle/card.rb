@@ -1,3 +1,6 @@
+require_relative 'board'
+require_relative 'game'
+
 class Card
 
   attr_reader :down
@@ -29,6 +32,6 @@ class Card
   # end
 
   # def ==
-
+    
   # end
 end
