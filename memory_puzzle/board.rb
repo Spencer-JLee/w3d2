@@ -7,13 +7,31 @@ class Board
 
   end
 
+  def rows_and_col
+    (1..4).each do |idx|
+      @grid[0][idx] = idx-1
+      @grid[idx][0] = idx-1
+    end 
+    @grid 
+  end 
+
   def render
-    @grid.each do |i|
-      i.each do |j|
-        puts j
-      end
-    end
-  end
+    @grid.each do |row|
+      temp = []
+      row.each do |ele|
+      if ele != nil && !(0..4).to_a.include?(ele)
+        if ele.down == false
+           temp << ele.face_value
+        else 
+          temp << ""
+        end 
+      end 
+      puts temp.join(" ")
+    end 
+    
+  end 
+end 
+
 
   def populate
     #fill board with a set of shuffled card pairs
@@ -21,7 +39,7 @@ class Board
       i = rand(1..4)
       j = rand(1..4)
       if @grid[i][j] == nil
-        char = @@LETTERS.pop()
+        char = @@LETTERS.pop
         @grid[i][j] = Card.new(char)
       end
     end 
@@ -45,9 +63,11 @@ class Board
   def revealed(guessed_pos)
     #reveal a Card at guessed_pos(unless it's face up, in which do nothing)
     #return the value of the Card revealed
-    if self[guessed_pos] == true
-      card = self[guessed_pos]
-      card.reveal
-      return card.face_value
-  end
+      if self[guessed_pos] == true
+        card = self[guessed_pos]
+        card.reveal
+        return card.face_value
+      end
+  end 
+
 end

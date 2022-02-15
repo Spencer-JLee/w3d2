@@ -24,11 +24,11 @@ class Card
     @down = false
   end
 
-  def to_s
+  # def to_s
     
-  end
+  # end
 
-  def ==
+  # def ==
 
-  end
+  # end
 end
