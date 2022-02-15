@@ -1,20 +1,31 @@
 class Card
-  attr_reader: :face_value
+
+  attr_reader :down
+  
   def initialize(face_value)
     @face_value = face_value
-    @up_or_down = 
+    @down = true
   end
 
-  def hide
+  def face_value
+    if @down == true
+      return ""
+    else 
+      return @face_value
+    end 
+  end 
 
+  def hide
+    @down = true
+    
   end
 
   def reveal
-
+    @down = false
   end
 
   def to_s
-
+    
   end
 
   def ==
