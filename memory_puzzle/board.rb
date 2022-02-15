@@ -48,6 +48,7 @@ class Board
   end
 
   def won?
+    # debugger
     #return true if all cards have been revealed
     @grid.flatten.all? { |card| card.down == false}
   end
